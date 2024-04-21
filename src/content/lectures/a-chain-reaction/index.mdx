@@ -15,6 +15,14 @@ I wrote a bit of JSX in my editor:
 </p>
 ```
 
+```py
+import torch
+
+def add_tensors(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
+    result = torch.add(x,y)
+    return result
+```
+
 Right now, this information only exists on _my_ device. But with a bit of luck, it will travel through time and space to _your_ device, and appear on _your_ screen.
 
 <p className="font-sans text-2xl text-purple-400 dark:text-purple-500">
