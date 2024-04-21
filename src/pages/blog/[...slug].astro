@@ -1,0 +1,52 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
+import "../../styles/markdown.css";
+import BlogLayout from "@/layouts/blogLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<!-- <BlogPost {...post.data}>
+  <div class="markdown">
+    <Content />
+  </div>
+</BlogPost> -->
+<BlogLayout
+  ><article>
+    <h1
+      class="text-[40px] font-black leading-[44px] text-[--title] font-['Montserrat']"
+    >
+      <!-- {frontmatter.title} -->
+    </h1>
+    <!-- <p class="mb-6 mt-2 text-[13px] text-gray-700 dark:text-gray-300">
+      {
+        new Date(frontmatter.date).toLocaleDateString("cn", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })
+      }
+    </p>
+
+    <p class="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
+      word count：{words}
+    </p>
+    <p class="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
+      estimated reading time：{readTime}minute
+    </p> -->
+    <div class="markdown mt-10">
+      <Content />
+    </div>
+  </article></BlogLayout
+>
