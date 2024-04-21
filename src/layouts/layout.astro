@@ -22,7 +22,9 @@ const posts = (await getCollection("lectures")).sort(
       <aside
         class="w-80 bg-neutral-950 text-neutral-50 p-5 hidden md:flex md:flex-col !basis-80 md:space-y-8 overflow-y-auto h-screen sticky top-0 left-0"
       >
-        <h1 class="text-3xl font-bold">Mathematical Analysis</h1>
+        <h1 class="text-3xl font-bold">
+          <a href="/" class="opacity-100"> Mathematical Analysis </a>
+        </h1>
         <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <div>
           <p class="opacity-50 font-mono">CS 2024 - 25</p>
@@ -128,7 +130,7 @@ const posts = (await getCollection("lectures")).sort(
         </div>
       </aside>
 
-      <main class="p-5 max-w-4xl flex-grow-0 text-neutral-100">
+      <main class="p-12 max-w-4xl flex-grow-0 text-neutral-100">
         <slot />
       </main>
     </div>

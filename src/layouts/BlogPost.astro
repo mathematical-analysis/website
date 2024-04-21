@@ -6,7 +6,7 @@ import type { CollectionEntry } from "astro:content";
 // import FormattedDate from "../components/FormattedDate.astro";
 // import Sidebar from "@/components/Sidebar.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"lectures">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
@@ -14,7 +14,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
   <head>
     <!-- <BaseHead title={title} description={description} /> -->
-    <style></style>
   </head>
 
   <body>
@@ -29,7 +28,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           } -->
       </div>
       <div class="prose">
-        <h1 class="text-3xl font-semibold mb-8">{title}</h1>
         <slot />
       </div>
     </article>

@@ -100,3 +100,8 @@
   display: block;
   padding-right: 1em;
 }
+
+.katex-html {
+  visibility: hidden;
+  display: none;
+}
