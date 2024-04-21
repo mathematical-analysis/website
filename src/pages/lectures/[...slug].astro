@@ -5,13 +5,13 @@ import "../../styles/markdown.css";
 import BlogLayout from "@/layouts/blogLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("lectures");
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
   }));
 }
-type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<"lectures">;
 
 const post = Astro.props;
 const { Content } = await post.render();
@@ -23,7 +23,7 @@ const { Content } = await post.render();
   </div>
 </BlogPost> -->
 <BlogLayout
-  ><article>
+  ><article class="">
     <h1
       class="text-[40px] font-black leading-[44px] text-[--title] font-['Montserrat']"
     >
