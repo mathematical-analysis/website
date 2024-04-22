@@ -17,32 +17,12 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<!-- <BlogPost {...post.data}>
-  <div class="markdown">
-    <Content />
-  </div>
-</BlogPost> -->
 <BlogLayout
   ><article class="">
-    <h1 class="text-[40px] font-black leading-[44px]">
+    <h1 class="text-[40px] font-semibold leading-[44px]">
       {post.data.title}
     </h1>
-    <!-- <p class="mb-6 mt-2 text-[13px] text-gray-700 dark:text-gray-300">
-      {
-        new Date(frontmatter.date).toLocaleDateString("cn", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        })
-      }
-    </p>
-
-    <p class="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
-      word count：{words}
-    </p>
-    <p class="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
-      estimated reading time：{readTime}minute
-    </p> -->
+    <hr class="my-4 opacity-10" />
     <div class="markdown mt-10">
       <Content />
     </div>

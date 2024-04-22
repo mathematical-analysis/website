@@ -20,7 +20,7 @@ const posts = (await getCollection("lectures")).sort(
   <body class="bg-neutral-900">
     <div class="flex h-full min-h-screen">
       <aside
-        class="w-80 bg-neutral-950 text-neutral-50 p-5 hidden md:flex md:flex-col !basis-80 md:space-y-8 overflow-y-auto h-screen sticky top-0 left-0"
+        class="w-80 bg-neutral-950 text-neutral-50 pl-6 pt-12 hidden md:flex md:flex-col !basis-80 md:space-y-8 overflow-y-auto h-screen sticky top-0 left-0"
       >
         <h1 class="text-3xl font-bold">
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
@@ -130,7 +130,7 @@ const posts = (await getCollection("lectures")).sort(
         </div>
       </aside>
 
-      <main class="p-12 max-w-4xl flex-grow-0 text-neutral-100">
+      <main class="p-12 max-w-4xl flex-grow-0 w-full text-neutral-200">
         <slot />
       </main>
     </div>
