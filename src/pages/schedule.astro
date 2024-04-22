@@ -3,53 +3,123 @@ import Layout from "../layouts/pageLayout.astro";
 ---
 
 <Layout>
-  <div class="relative overflow-x-auto">
+  <h1 class="text-4xl font-semibold text-neutral-100">Schedule</h1>
+  <hr class="my-4 opacity-10" />
+  <div class="space-y-4 mb-8">
+    <p>
+      Every week there will be a lecture and a seminar. The lecture will be held
+      on Friday in <span class="font-medium">Room A2 - FSEGA</span>. Students
+      are allowed to change the seminar group <span class="font-bold"
+        >if they message me beforehand</span
+      >.
+    </p>
+  </div>
+  <div class="relative overflow-x-auto rounded-lg">
     <table
-      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+      class="w-full text-sm text-left rtl:text-right text-neutral-500 dark:text-neutral-400"
     >
       <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        class="text-xs text-neutral-700 uppercase bg-neutral-50 dark:bg-neutral-700 dark:text-neutral-400"
       >
         <tr>
-          <th scope="col" class="px-6 py-3"> Product name </th>
-          <th scope="col" class="px-6 py-3"> Color </th>
-          <th scope="col" class="px-6 py-3"> Category </th>
-          <th scope="col" class="px-6 py-3"> Price </th>
+          <th scope="col" class="px-6 py-3"> Time </th>
+          <th scope="col" class="px-6 py-3"> Monday </th>
+          <th scope="col" class="px-6 py-3"> Tuesday </th>
+          <th scope="col" class="px-6 py-3"> Wednesday </th>
+          <th scope="col" class="px-6 py-3"> Thursday </th>
+          <th scope="col" class="px-6 py-3"> Friday </th>
         </tr>
       </thead>
       <tbody>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <tr
+          class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+        >
           <th
             scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
           >
-            Apple MacBook Pro 17"
+            8:00 - 10:00
           </th>
-          <td class="px-6 py-4"> Silver </td>
-          <td class="px-6 py-4"> Laptop </td>
-          <td class="px-6 py-4"> $2999 </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Seminar 916</td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Lecture </td>
         </tr>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <tr
+          class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+        >
           <th
             scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
           >
-            Microsoft Surface Pro
+            10:00 - 12:00
           </th>
-          <td class="px-6 py-4"> White </td>
-          <td class="px-6 py-4"> Laptop PC </td>
-          <td class="px-6 py-4"> $1999 </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Seminar 911</td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
         </tr>
-        <tr class="bg-white dark:bg-gray-800">
+        <tr
+          class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+        >
           <th
             scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
           >
-            Magic Mouse 2
+            12:00 - 14:00
           </th>
-          <td class="px-6 py-4"> Black </td>
-          <td class="px-6 py-4"> Accessories </td>
-          <td class="px-6 py-4"> $99 </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Seminar 912</td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Seminar 914 </td>
+        </tr>
+        <tr
+          class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+          >
+            14:00 - 16:00
+          </th>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Seminar 915</td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Seminar 913</td>
+        </tr>
+        <tr
+          class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+          >
+            16:00 - 18:00
+          </th>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> Office Hours</td>
+          <td class="px-6 py-4"> Seminar 917</td>
+        </tr>
+        <tr
+          class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+          >
+            18:00 - 20:00
+          </th>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
+          <td class="px-6 py-4"> </td>
         </tr>
       </tbody>
     </table>
