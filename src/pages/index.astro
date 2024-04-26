@@ -3,6 +3,7 @@ import Layout from "../layouts/pageLayout.astro";
 import Link from "../components/link.astro";
 import PostTitle from "../components/postTitle.astro";
 import type { Frontmatter } from "./types";
+import Chart from "../components/chart.svelte";
 ---
 
 <Layout>
@@ -39,7 +40,7 @@ import type { Frontmatter } from "./types";
     <p class="font-medium">
       The access code for Teams is <code
         class="px-2.5 ml-1 py-1.5 bg-neutral-800 font-bold rounded-lg"
-        >p29q86c</code
+        >23awpe7</code
       >.
     </p>
     <p>
@@ -111,5 +112,6 @@ import type { Frontmatter } from "./types";
     }
   </div> -->
     <hr class="my-4 opacity-10" />
+    <Chart client:only />
   </div>
 </Layout>

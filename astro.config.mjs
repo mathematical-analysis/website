@@ -6,12 +6,13 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import react from "@astrojs/react";
+import svelte from "@astrojs/svelte";
 
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), mdx()],
+  integrations: [tailwind(), mdx(), svelte()],
   image: {
     domains: ["https://github.com"],
     remotePatterns: [
