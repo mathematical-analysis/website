@@ -9,6 +9,17 @@ import type { Frontmatter } from "./types";
   <h1 class="text-4xl font-semibold text-neutral-100">Welcome!</h1>
   <hr class="my-4 opacity-10" />
   <div class="space-y-4">
+    <div
+      class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-amber-500"
+    >
+      <span class="inline-block align-middle mr-8"
+        ><b class="capitalize">Attention!</b> The midterm exam is scheduled for 25.11.2024!</span
+      ><button
+        class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+        onclick="this.parentElement.style.display='none'"><span>×</span></button
+      >
+    </div>
+
     <p>
       This is the page for the Mathematical Analysis course at the Babeș-Bolyai
       University, Cluj-Napoca. Here you will find the course syllabus, the
@@ -99,5 +110,6 @@ import type { Frontmatter } from "./types";
       })
     }
   </div> -->
+    <hr class="my-4 opacity-10" />
   </div>
 </Layout>
