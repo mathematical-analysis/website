@@ -49,7 +49,9 @@ const posts = (await getCollection("lectures")).sort(
                   class="flex items-center space-x-2"
                 >
                   <span class="opacity-100 truncate">Week {idx + 1}</span>
-                  <h4 class="opacity-50 truncate">{post.data.title}</h4>
+                  <h4 class="opacity-50 truncate max-w-36">
+                    {post.data.title}
+                  </h4>
                 </a>
                 <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
                   {idx + 1}
@@ -138,11 +140,26 @@ const posts = (await getCollection("lectures")).sort(
 </html>
 
 <script>
+  let keyBuffer = "";
+  let keyTimeout: string | number | NodeJS.Timeout | null | undefined = null;
+
   document.addEventListener("keydown", function (event) {
-    const key = event.key;
-    if (/^[1-9]$/.test(key)) {
-      window.location.href = `/lectures/${key}/`;
+    const key = event.key; // Get the key pressed
+    clearTimeout(keyTimeout as NodeJS.Timeout); // Clear the previous timeout
+
+    if (/^[0-9]$/.test(key)) {
+      // Check if the key is a number
+      keyBuffer += key; // Append the key to the buffer
+
+      keyTimeout = setTimeout(() => {
+        // Navigate based on the buffer content
+        if (parseInt(keyBuffer, 10) <= 12) {
+          window.location.href = `/lectures/${keyBuffer}/`;
+        }
+        keyBuffer = ""; // Reset the buffer
+      }, 180); // Wait for 500 milliseconds to see if another digit is pressed
     } else {
+      // Handle other keys like 'h', 'f', 's'
       switch (key) {
         case "h":
           window.location.href = "/";
@@ -154,6 +171,7 @@ const posts = (await getCollection("lectures")).sort(
           window.location.href = "/schedule/";
           break;
       }
+      keyBuffer = ""; // Reset the buffer if a non-numeric key is pressed
     }
   });
 </script>
