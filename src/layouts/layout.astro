@@ -20,18 +20,18 @@ const posts = (await getCollection("lectures")).sort(
   <body class="bg-neutral-900">
     <div class="flex h-full min-h-screen">
       <aside
-        class="w-80 bg-neutral-950 text-neutral-50 pl-6 pt-12 hidden md:flex md:flex-col !basis-80 md:space-y-8 overflow-y-auto h-screen sticky top-0 left-0"
+        class="w-80 bg-neutral-950 text-neutral-50 px-6 pt-12 hidden md:flex md:flex-col !basis-80 md:space-y-8 overflow-y-auto h-screen sticky top-0 left-0"
       >
         <h1 class="text-3xl font-bold">
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
         </h1>
-        <div class="w-[90%] h-0.5 bg-white/5 my-5"></div>
+        <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <div>
           <p class="opacity-50 font-mono">CS 2024 - 25</p>
           <p class="opacity-50">Babeș-Bolyai University</p>
         </div>
 
-        <div class="w-[90%] h-0.5 bg-white/5 my-5"></div>
+        <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <div class="flex flex-col">
           <h2 class="text-xl font-bold">
             <span class="opacity-50">Lect. </span>Mihai Nechita
@@ -39,11 +39,11 @@ const posts = (await getCollection("lectures")).sort(
           <p class="opacity-50">mihai.nechita(at)ubbcluj.ro</p>
         </div>
 
-        <div class="w-[90%] h-0.5 bg-white/5 my-5"></div>
+        <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <ul class="space-y-1 text-lg">
           {
             posts.map((post, idx) => (
-              <li class="hover:opacity-50 transition-opacity">
+              <li class="hover:opacity-50 transition-opacity flex justify-between items-center">
                 <a
                   href={`/lectures/${post.slug}/`}
                   class="flex items-center space-x-2"
@@ -51,12 +51,15 @@ const posts = (await getCollection("lectures")).sort(
                   <span class="opacity-100 truncate">Week {idx + 1}</span>
                   <h4 class="opacity-50 truncate">{post.data.title}</h4>
                 </a>
+                <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
+                  {idx + 1}
+                </kbd>
               </li>
             ))
           }
         </ul>
 
-        <div class="w-[90%] h-0.5 bg-white/5 my-5"></div>
+        <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <ul class="space-y-1">
           <li>
             <a href="#" class="flex items-center space-x-2">
@@ -71,7 +74,7 @@ const posts = (await getCollection("lectures")).sort(
           </li>
         </ul>
 
-        <div class="w-[90%] h-0.5 bg-white/5 my-5"></div>
+        <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <ul class="space-y-1">
           <li>
             <a href="#" class="flex items-center space-x-2">
@@ -86,34 +89,37 @@ const posts = (await getCollection("lectures")).sort(
           </li>
         </ul>
 
-        <div class="w-[90%] h-0.5 bg-white/5 my-5"></div>
+        <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <ul class="space-y-1">
           <li>
-            <a href="#" class="flex items-center space-x-2">
-              <span class="opacity-100">FAQ</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="flex items
-            -center space-x-2">
-              <span class="opacity-100">Syllabus</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="flex items
-            -center space-x-2">
+            <a href="/schedule/" class="flex items-center space-x-2">
               <span class="opacity-100">Schedule</span>
             </a>
           </li>
           <li>
-            <a href="#" class="flex items
+            <a
+              href="/syllabus/"
+              class="flex items
+            -center space-x-2"
+            >
+              <span class="opacity-100">Syllabus</span>
+            </a>
+          </li>
+          <li>
+            <a href="/faq/" class="flex items
+            -center space-x-2">
+              <span class="opacity-100">FAQ</span>
+            </a>
+          </li>
+          <li>
+            <a href="/exams/" class="flex items
             -center space-x-2">
               <span class="opacity-100">Exams</span>
             </a>
           </li>
         </ul>
 
-        <div class="w-[90%] h-0.5 bg-white/5 my-5"></div>
+        <div class="w-full h-0.5 bg-white/5 my-5"></div>
         <div class="flex flex-col space-y-2">
           <p class="opacity-50">
             © {new Date().getFullYear()} Mathematical Analysis
@@ -130,3 +136,24 @@ const posts = (await getCollection("lectures")).sort(
     </div>
   </body>
 </html>
+
+<script>
+  document.addEventListener("keydown", function (event) {
+    const key = event.key;
+    if (/^[1-9]$/.test(key)) {
+      window.location.href = `/lectures/${key}/`;
+    } else {
+      switch (key) {
+        case "h":
+          window.location.href = "/";
+          break;
+        case "f":
+          window.location.href = "/faq/";
+          break;
+        case "s":
+          window.location.href = "/schedule/";
+          break;
+      }
+    }
+  });
+</script>
