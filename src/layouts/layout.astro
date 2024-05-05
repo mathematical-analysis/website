@@ -25,13 +25,13 @@ const posts = (await getCollection("lectures")).sort(
         <h1 class="text-3xl font-bold">
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
         </h1>
-        <div class="w-full h-0.5 bg-white/5 my-5"></div>
+        <hr class="border-white/5" />
         <div>
           <p class="opacity-50 font-mono">CS 2024 - 25</p>
           <p class="opacity-50">Babeș-Bolyai University</p>
         </div>
 
-        <div class="w-full h-0.5 bg-white/5 my-5"></div>
+        <hr class="border-white/5" />
         <div class="flex flex-col">
           <h2 class="text-xl font-bold">
             <span class="opacity-50">Lect. </span>Mihai Nechita
@@ -39,7 +39,7 @@ const posts = (await getCollection("lectures")).sort(
           <p class="opacity-50">mihai.nechita(at)ubbcluj.ro</p>
         </div>
 
-        <div class="w-full h-0.5 bg-white/5 my-5"></div>
+        <hr class="border-white/5" />
         <ul class="space-y-1 text-lg">
           {
             posts.map((post, idx) => (
@@ -61,7 +61,54 @@ const posts = (await getCollection("lectures")).sort(
           }
         </ul>
 
-        <div class="w-full h-0.5 bg-white/5 my-5"></div>
+        <hr class="border-white/5" />
+        <ul class="space-y-1">
+          <li
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+          >
+            <a href="/schedule/" class="flex items-center space-x-2">
+              <span class="opacity-100">Schedule</span>
+            </a>
+            <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
+              S
+            </kbd>
+          </li>
+
+          <li
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+          >
+            <a href="/syllabus/" class="flex items-center space-x-2">
+              <span class="opacity-100">Syllabus</span>
+            </a>
+            <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
+              Y
+            </kbd>
+          </li>
+
+          <li
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+          >
+            <a href="/faq/" class="flex items-center space-x-2">
+              <span class="opacity-100">FAQ</span>
+            </a>
+            <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
+              F
+            </kbd>
+          </li>
+
+          <li
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+          >
+            <a href="/syllabus/" class="flex items-center space-x-2">
+              <span class="opacity-100">Exams</span>
+            </a>
+            <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
+              E
+            </kbd>
+          </li>
+        </ul>
+
+        <hr class="border-white/5" />
         <ul class="space-y-1">
           <li>
             <a href="#" class="flex items-center space-x-2">
@@ -76,7 +123,7 @@ const posts = (await getCollection("lectures")).sort(
           </li>
         </ul>
 
-        <div class="w-full h-0.5 bg-white/5 my-5"></div>
+        <hr class="border-white/5" />
         <ul class="space-y-1">
           <li>
             <a href="#" class="flex items-center space-x-2">
@@ -91,43 +138,22 @@ const posts = (await getCollection("lectures")).sort(
           </li>
         </ul>
 
-        <div class="w-full h-0.5 bg-white/5 my-5"></div>
-        <ul class="space-y-1">
-          <li>
-            <a href="/schedule/" class="flex items-center space-x-2">
-              <span class="opacity-100">Schedule</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/syllabus/"
-              class="flex items
-            -center space-x-2"
-            >
-              <span class="opacity-100">Syllabus</span>
-            </a>
-          </li>
-          <li>
-            <a href="/faq/" class="flex items
-            -center space-x-2">
-              <span class="opacity-100">FAQ</span>
-            </a>
-          </li>
-          <li>
-            <a href="/exams/" class="flex items
-            -center space-x-2">
-              <span class="opacity-100">Exams</span>
-            </a>
-          </li>
-        </ul>
-
-        <div class="w-full h-0.5 bg-white/5 my-5"></div>
+        <hr class="border-white/5" />
         <div class="flex flex-col space-y-2">
           <p class="opacity-50">
             © {new Date().getFullYear()} Mathematical Analysis
           </p>
-          <p class="opacity-50">
-            Last updated: {new Date().toLocaleDateString()}
+          <p class="opacity-20">
+            Current time: {
+              new Date().toLocaleDateString("en-US", {
+                month: "short",
+                day: "2-digit",
+                year: "2-digit",
+                era: "long",
+                dayPeriod: "long",
+                calendar: "gregory",
+              })
+            }
           </p>
         </div>
       </aside>
