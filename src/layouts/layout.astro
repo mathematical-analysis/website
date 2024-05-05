@@ -28,7 +28,7 @@ const posts = (await getCollection("lectures")).sort(
       </button>
       <aside
         id="sidebar"
-        class="transform top-0 left-0 w-80 bg-neutral-950 text-neutral-50 px-6 py-12 flex flex-col space-y-8 fixed h-screen overflow-auto ease-out transition-all duration-200 z-20 -translate-x-full md:translate-x-0 md:relative md:flex md:flex-col !basis-80"
+        class="transform-gpu top-0 left-0 w-80! bg-neutral-950 text-neutral-50 px-6 py-12 flex flex-col space-y-8 fixed md:sticky h-screen overflow-auto ease-out transition-all duration-200 z-20 -translate-x-full md:translate-x-0 md:relative md:flex md:flex-col !basis-80"
       >
         <h1 class="text-3xl font-bold">
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
@@ -56,9 +56,9 @@ const posts = (await getCollection("lectures")).sort(
                 <li class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 w-full">
                   <a
                     href={`/lectures/${post.slug}/`}
-                    class="flex items-center space-x-2 w-[80%]"
+                    class="flex items-center space-x-2 w-[85%]"
                   >
-                    <span class="opacity-100 truncate">Week {idx + 1}</span>
+                    {/* <span class="opacity-100 truncate">Week {idx + 1}</span> */}
                     <h4 class="opacity-50 truncate">{post.data.title}</h4>
                   </a>
                   <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -73,9 +73,9 @@ const posts = (await getCollection("lectures")).sort(
         <hr class="border-white/5" />
         <ul class="space-y-1">
           <li
-            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/schedule/" class="flex items-center space-x-2">
+            <a href="/schedule/" class="flex items-center space-x-2 w-ful">
               <span class="opacity-100">Schedule</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -84,9 +84,9 @@ const posts = (await getCollection("lectures")).sort(
           </li>
 
           <li
-            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/syllabus/" class="flex items-center space-x-2">
+            <a href="/syllabus/" class="flex items-center space-x-2 w-full">
               <span class="opacity-100">Syllabus</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -95,9 +95,9 @@ const posts = (await getCollection("lectures")).sort(
           </li>
 
           <li
-            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/faq/" class="flex items-center space-x-2">
+            <a href="/faq/" class="flex items-center space-x-2 w-full">
               <span class="opacity-100">FAQ</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -106,9 +106,9 @@ const posts = (await getCollection("lectures")).sort(
           </li>
 
           <li
-            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150"
+            class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/syllabus/" class="flex items-center space-x-2">
+            <a href="/syllabus/" class="flex items-center space-x-2 w-full">
               <span class="opacity-100">Exams</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -120,7 +120,7 @@ const posts = (await getCollection("lectures")).sort(
         <hr class="border-white/5" />
         <ul class="space-y-1">
           <li>
-            <a href="#" class="flex items-center space-x-2">
+            <a href="#" class="flex items-center space-x-2 w-full">
               <span class="opacity-100">LaTeX / Homework Guide</span>
             </a>
           </li>
@@ -171,6 +171,7 @@ const posts = (await getCollection("lectures")).sort(
         <slot />
       </main>
     </div>
+
     <script>
       const sidebarToggle = document.getElementById("sidebarToggle");
       if (sidebarToggle !== null) {
@@ -187,6 +188,33 @@ const posts = (await getCollection("lectures")).sort(
           }
         });
       }
+
+      function dismissSidebarOnScroll() {
+        const sidebar = document.getElementById("sidebar");
+        if (sidebar && !sidebar.classList.contains("-translate-x-full")) {
+          sidebar.classList.add("-translate-x-full");
+        }
+      }
+
+      function dismissSidebarOnClickOutside(event: MouseEvent) {
+        const sidebar = document.getElementById("sidebar");
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        if (
+          sidebar &&
+          !sidebar.contains(event.target as Node) &&
+          sidebarToggle &&
+          !sidebarToggle.contains(event.target as Node)
+        ) {
+          sidebar.classList.add("-translate-x-full");
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("click", dismissSidebarOnClickOutside);
+        window.addEventListener("scroll", dismissSidebarOnScroll, {
+          passive: true,
+        });
+      });
     </script>
   </body>
 </html>
