@@ -81,36 +81,7 @@ import Chart from "../components/chart.svelte";
         </li>
       </ul>
     </p>
-    <!-- <div class="relative -top-[10px] flex flex-col gap-8">
-    {
-      posts.map((item) => {
-        return (
-          <Link
-            classList={[
-              "block scale-100 py-4 hover:scale-[1.005] active:scale-100",
-            ]}
-            target="_self"
-            href={"/" + item.frontmatter.href + "/"}
-          >
-            <article>
-              <PostTitle
-                title={item.frontmatter.title}
-                date={item.frontmatter.date}
-              />
-              <p class="text-[13px] text-gray-700 dark:text-gray-300">
-                {new Date(item.frontmatter.date).toLocaleDateString("cn", {
-                  day: "2-digit",
-                  month: "2-digit",
-                  year: "numeric",
-                })}
-              </p>
-              <p class="mt-1">{item.frontmatter.spoiler}</p>
-            </article>
-          </Link>
-        );
-      })
-    }
-  </div> -->
+    <h2 class="text-2xl font-semibold text-neutral-100">Grading Format</h2>
     <hr class="my-4 opacity-10" />
     <div class="relative overflow-x-auto rounded-lg">
       <table
@@ -204,6 +175,8 @@ import Chart from "../components/chart.svelte";
       </table>
     </div>
 
-    <!-- <Chart /> -->
+    <h2 class="text-2xl font-semibold text-neutral-100">Grade Stats</h2>
+    <hr class="my-4 opacity-10" />
+    <Chart client:only />
   </div>
 </Layout>
