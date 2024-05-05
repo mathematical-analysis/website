@@ -9,7 +9,7 @@ export async function GET(context) {
   return rss({
     title: "Blog",
     description: "Welcome to subscribe to my blog",
-    site: context.site,
+    site: "https://cretu.dev",
     items: posts.map((post) => ({
       title: post.frontmatter.title,
       description: post.frontmatter.spoiler,

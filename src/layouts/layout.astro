@@ -19,8 +19,16 @@ const posts = (await getCollection("lectures")).sort(
   </head>
   <body class="bg-neutral-900">
     <div class="flex h-full min-h-screen">
+      <button
+        id="sidebarToggle"
+        class="md:hidden fixed z-30 top-4 left-4 p-2 bg-neutral-800 rounded text-neutral-50"
+        aria-label="Toggle sidebar"
+      >
+        &#9776;
+      </button>
       <aside
-        class="w-80 bg-neutral-950 text-neutral-50 px-6 py-12 hidden md:flex md:flex-col !basis-80 md:space-y-8 overflow-y-auto h-screen sticky top-0 left-0"
+        id="sidebar"
+        class="transform top-0 left-0 w-80 bg-neutral-950 text-neutral-50 px-6 py-12 flex flex-col space-y-8 fixed h-screen overflow-auto ease-out transition-all duration-200 z-20 -translate-x-full md:translate-x-0 md:relative md:flex md:flex-col !basis-80"
       >
         <h1 class="text-3xl font-bold">
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
@@ -38,22 +46,20 @@ const posts = (await getCollection("lectures")).sort(
         </div>
 
         <hr class="border-white/5" />
-        <ul class="space-y-1 text-lg">
+        <ul class="space-y-1 lg:text-lg w-full">
           {
             posts.map((post, idx) => (
-              <div>
+              <div class="w-full">
                 {idx == 6 && (
                   <hr class="border-white/5 border-dashed border-[1.5px] my-2" />
                 )}
-                <li class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150">
+                <li class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 w-full">
                   <a
                     href={`/lectures/${post.slug}/`}
-                    class="flex items-center space-x-2"
+                    class="flex items-center space-x-2 w-[80%]"
                   >
                     <span class="opacity-100 truncate">Week {idx + 1}</span>
-                    <h4 class="opacity-50 truncate max-w-36">
-                      {post.data.title}
-                    </h4>
+                    <h4 class="opacity-50 truncate">{post.data.title}</h4>
                   </a>
                   <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
                     {idx + 1}
@@ -165,6 +171,23 @@ const posts = (await getCollection("lectures")).sort(
         <slot />
       </main>
     </div>
+    <script>
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      if (sidebarToggle !== null) {
+        sidebarToggle.addEventListener("click", function () {
+          const sidebar = document.getElementById("sidebar");
+          if (sidebar !== null) {
+            if (sidebar.classList.contains("-translate-x-full")) {
+              sidebar.classList.remove("-translate-x-full");
+              sidebar.classList.add("translate-x-0");
+            } else {
+              sidebar.classList.remove("translate-x-0");
+              sidebar.classList.add("-translate-x-full");
+            }
+          }
+        });
+      }
+    </script>
   </body>
 </html>
 
