@@ -112,6 +112,98 @@ import Chart from "../components/chart.svelte";
     }
   </div> -->
     <hr class="my-4 opacity-10" />
+    <div class="relative overflow-x-auto rounded-lg">
+      <table
+        class="w-full text-sm text-left rtl:text-right text-neutral-500 dark:text-neutral-400"
+      >
+        <thead
+          class="text-xs text-neutral-700 uppercase bg-neutral-50 dark:bg-neutral-700 dark:text-neutral-400"
+        >
+          <tr>
+            <th scope="col" class="px-6 py-3">Assessment Type</th>
+            <th scope="col" class="px-6 py-3">Share (in final grade)</th>
+            <th scope="col" class="px-6 py-3">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+            >
+              Mid-term
+            </th>
+            <td class="px-6 py-4">35%</td>
+            <td class="px-6 py-4"
+              >Covers all material taught in the first half of the semester.</td
+            >
+          </tr>
+          <tr
+            class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+            >
+              Final Exam
+            </th>
+            <td class="px-6 py-4">55%</td>
+            <td class="px-6 py-4"
+              >Comprehensive exam covering materials from the second half of the
+              semester.</td
+            >
+          </tr>
+          <tr
+            class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+            >
+              Homework
+            </th>
+            <td class="px-6 py-4">5%</td>
+            <td class="px-6 py-4"
+              >Weekly assignments to reinforce lecture topics and further
+              individual learning.</td
+            >
+          </tr>
+          <tr
+            class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+            >
+              Seminar Activity
+            </th>
+            <td class="px-6 py-4">5%</td>
+            <td class="px-6 py-4"
+              >Engagement and participation in seminar discussions and
+              activities.</td
+            >
+          </tr>
+          <tr
+            class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white"
+            >
+              Projects
+            </th>
+            <td class="px-6 py-4">15%</td>
+            <td class="px-6 py-4"
+              >Bonus group projects aimed at exploring real-world applications
+              of course theories.</td
+            >
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <!-- <Chart /> -->
   </div>
 </Layout>

@@ -25,13 +25,11 @@ const posts = (await getCollection("lectures")).sort(
         <h1 class="text-3xl font-bold">
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
         </h1>
-        <hr class="border-white/5" />
         <div>
           <p class="opacity-50 font-mono">CS 2024 - 25</p>
           <p class="opacity-50">Babeș-Bolyai University</p>
         </div>
 
-        <hr class="border-white/5" />
         <div class="flex flex-col">
           <h2 class="text-xl font-bold">
             <span class="opacity-50">Lect. </span>Mihai Nechita
@@ -208,6 +206,9 @@ const posts = (await getCollection("lectures")).sort(
           break;
         case "s":
           window.location.href = "/schedule/";
+          break;
+        case "y":
+          window.location.href = "/syllabus/";
           break;
       }
       keyBuffer = ""; // Reset the buffer if a non-numeric key is pressed
