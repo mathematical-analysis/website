@@ -15,7 +15,7 @@ const posts = (await getCollection("lectures")).sort(
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Mathematical Analysis</title>
   </head>
   <body class="bg-neutral-900">
     <div class="flex h-full min-h-screen">
@@ -43,20 +43,25 @@ const posts = (await getCollection("lectures")).sort(
         <ul class="space-y-1 text-lg">
           {
             posts.map((post, idx) => (
-              <li class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150">
-                <a
-                  href={`/lectures/${post.slug}/`}
-                  class="flex items-center space-x-2"
-                >
-                  <span class="opacity-100 truncate">Week {idx + 1}</span>
-                  <h4 class="opacity-50 truncate max-w-36">
-                    {post.data.title}
-                  </h4>
-                </a>
-                <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
-                  {idx + 1}
-                </kbd>
-              </li>
+              <div>
+                {idx == 6 && (
+                  <hr class="border-white/5 border-dashed border-[1.5px] my-2" />
+                )}
+                <li class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150">
+                  <a
+                    href={`/lectures/${post.slug}/`}
+                    class="flex items-center space-x-2"
+                  >
+                    <span class="opacity-100 truncate">Week {idx + 1}</span>
+                    <h4 class="opacity-50 truncate max-w-36">
+                      {post.data.title}
+                    </h4>
+                  </a>
+                  <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
+                    {idx + 1}
+                  </kbd>
+                </li>
+              </div>
             ))
           }
         </ul>
