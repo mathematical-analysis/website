@@ -7,5 +7,5 @@ export default {
     extend: {},
     fontFamily: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

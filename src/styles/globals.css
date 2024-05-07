@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 
-@media (prefers-color-scheme: dark) {
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
 
 @media (prefers-reduced-motion) {
   * {
@@ -16,8 +10,47 @@
     transform: none !important;
   }
 }
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+
+@layer base {
+  html {
+    @apply max-h-screen antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply m-0 p-0 ;
+  }
+
+  pre::-webkit-scrollbar {
+    display: none;
+  }
+
+  pre {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .capsize::before {
+    content: '';
+    margin-bottom: -0.098em;
+    display: table;
+  }
+
+  .capsize::after {
+    content: '';
+    margin-top: -0.219em;
+    display: table;
   }
 }

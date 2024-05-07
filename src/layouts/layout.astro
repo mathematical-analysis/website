@@ -28,7 +28,7 @@ const posts = (await getCollection("lectures")).sort(
       </button>
       <aside
         id="sidebar"
-        class="transform-gpu top-0 left-0 w-80! bg-neutral-950 text-neutral-50 px-6 py-12 flex flex-col space-y-8 fixed md:sticky h-screen overflow-auto ease-out transition-all duration-200 z-20 -translate-x-full md:translate-x-0 md:relative md:flex md:flex-col !basis-80"
+        class="transform-gpu top-0 left-0 w-80! bg-neutral-950 text-neutral-50 px-6 py-12 flex flex-col space-y-8 fixed md:sticky h-screen overflow-auto ease-out transition-all duration-200 z-20 -translate-x-full md:translate-x-0 md:flex md:flex-col !basis-80"
       >
         <h1 class="text-3xl font-bold">
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
@@ -153,7 +153,7 @@ const posts = (await getCollection("lectures")).sort(
             © {new Date().getFullYear()} Mathematical Analysis
           </p>
           <p class="opacity-20">
-            Current time: {
+            Last updated: {
               new Date().toLocaleDateString("en-US", {
                 month: "short",
                 day: "2-digit",
