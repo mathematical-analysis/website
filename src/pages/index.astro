@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/pageLayout.astro";
-import Link from "../components/link.astro";
-import PostTitle from "../components/postTitle.astro";
 import type { Frontmatter } from "./types";
 import Chart from "../components/chart.svelte";
 ---
@@ -22,21 +20,20 @@ import Chart from "../components/chart.svelte";
     </div>
 
     <p>
-      This is the page for the Mathematical Analysis course at the Babeș-Bolyai
-      University, Cluj-Napoca. Here you will find the course syllabus, the
-      course materials, and the homework assignments.
+      Welcome to the Mathematical Analysis course page at Babeș-Bolyai
+      University, Cluj-Napoca. Below you'll find links to the syllabus,
+      schedule, homework, and more.
     </p>
+
     <p>
-      The course is taught by
-      <a
-        href="hhttps://math.ubbcluj.ro/~mihai.nechita/"
+      Lecturer: <a
+        href="https://math.ubbcluj.ro/~mihai.nechita/"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-500"
-      >
-        Lect. Mihai Nechita.
-      </a> If you have any questions, please feel free to me on Teams or by email.
+        class="text-blue-500">Mihai Nechita</a
+      >. Contact me via Teams or email with any questions.<br />
     </p>
+
     <p class="font-medium">
       The access code for Teams is <code
         class="px-2.5 ml-1 py-1.5 bg-neutral-800 font-bold rounded-lg"
@@ -44,7 +41,7 @@ import Chart from "../components/chart.svelte";
       >.
     </p>
     <p>
-      For more information, check out the following links:
+      Quick links:
       <ul class="list-disc list-inside">
         <li>
           <a
