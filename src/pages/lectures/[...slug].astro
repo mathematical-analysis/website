@@ -5,12 +5,37 @@ import BlogLayout from "@/layouts/blogLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("lectures");
-  return posts.map((post) => ({
+  const sortedPosts = posts.sort((a, b) => Number(a.slug) - Number(b.slug));
+  return sortedPosts.map((post, index) => ({
     params: { slug: post.slug },
-    props: post,
+    props: {
+      ...post,
+      nextSlug:
+        index < sortedPosts.length - 1 ? sortedPosts[index + 1].slug : null,
+      nextPostTitle:
+        index < sortedPosts.length - 1
+          ? sortedPosts[index + 1].data.title
+          : null,
+      previousSlug: index > 0 ? sortedPosts[index - 1].slug : null,
+      previousPostTitle: index > 0 ? sortedPosts[index - 1].data.title : null,
+    },
   }));
 }
-type Props = CollectionEntry<"lectures">;
+
+type Props = CollectionEntry<"lectures"> & {
+  nextSlug: string | null;
+  nextPostTitle: string | null;
+  previousSlug: string | null;
+  previousPostTitle: string | null;
+};
+// export async function getStaticPaths() {
+//   const posts = await getCollection("lectures");
+//   return posts.map((post) => ({
+//     params: { slug: post.slug },
+//     props: post,
+//   }));
+// }
+// type Props = CollectionEntry<"lectures">;
 
 const post = Astro.props;
 const { Content } = await post.render();
@@ -25,5 +50,43 @@ const { Content } = await post.render();
     <div class="mt-10 prose prose-neutral prose-invert prose-img:rounded-lg">
       <Content />
     </div>
-  </article></BlogLayout
->
+    <div class="mt-10 flex justify-between items-center space-x-8">
+      {
+        post.previousSlug && (
+          <>
+            <a
+              href={`/lectures/${post.previousSlug}`}
+              class="group text-gray-200 hover:text-sky-600 transition ease-in-out duration-200 bg-neutral-800/50 px-4 py-4 rounded-md truncate"
+            >
+              <span
+                aria-hidden="true"
+                class="inline-block -translate-x-0 group-hover:-translate-x-1 transition-transform ease-in-out duration-200"
+              >
+                ←
+              </span>
+              Previous lecture {post.previousSlug}, {post.previousPostTitle}
+            </a>
+          </>
+        )
+      }
+      {
+        post.nextSlug && (
+          <>
+            <a
+              href={`/lectures/${post.nextSlug}`}
+              class="group text-gray-200 hover:text-sky-600 transition ease-in-out duration-200 bg-neutral-800/50 px-4 py-4 rounded-md truncate"
+            >
+              Next lecture {post.nextSlug}, {post.nextPostTitle}
+              <span
+                aria-hidden="true"
+                class="inline-block translate-x-0 group-hover:translate-x-1 transition-transform ease-in-out duration-200"
+              >
+                →
+              </span>
+            </a>
+          </>
+        )
+      }
+    </div>
+  </article>
+</BlogLayout>
