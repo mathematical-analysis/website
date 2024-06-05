@@ -17,17 +17,38 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 }, [] as HeadingWithSubheadings[]);
 ---
 
-<nav id="table-of-contents" aria-label="Table Of Contents">
+<button
+  id="tocToggle"
+  class="lg:hidden fixed z-30 top-4 right-4 p-2 bg-neutral-800 rounded text-neutral-50"
+  aria-label="Toggle TOC"
+>
+  &#9776;
+</button>
+<nav
+  id="table-of-contents"
+  aria-label="Table Of Contents"
+  class="fixed top-0 right-0 w-80 bg-neutral-950 lg:bg-transparent text-neutral-50 px-6 py-12 flex flex-col space-y-8 h-screen overflow-auto ease-out transition-transform duration-200 z-20 translate-x-full lg:translate-x-0"
+>
   <ol>
     {
       grouppedHeadings.map((h) => (
         <li>
-          <a href={`#${h.slug}`}>{h.text}</a>
+          <a
+            href={`#${h.slug}`}
+            class="opacity-70 hover:opacity-100 transition-opacity ease-in-out"
+          >
+            {h.text}
+          </a>
           {h.subheadings.length > 0 && (
             <ol>
               {h.subheadings.map((sub) => (
                 <li>
-                  <a href={`#${sub.slug}`}>{sub.text}</a>
+                  <a
+                    href={`#${sub.slug}`}
+                    class="opacity-40 ml-4 hover:opacity-100 transition-opacity ease-in-out"
+                  >
+                    {sub.text}
+                  </a>
                 </li>
               ))}
             </ol>
@@ -37,6 +58,48 @@ const grouppedHeadings = headings.reduce((array, heading) => {
     }
   </ol>
 </nav>
+
+<script>
+  const tocToggle = document.getElementById("tocToggle");
+  const toc = document.getElementById("table-of-contents");
+  if (tocToggle !== null) {
+    tocToggle.addEventListener("click", function () {
+      if (toc !== null) {
+        if (toc.classList.contains("translate-x-full")) {
+          toc.classList.remove("translate-x-full");
+          toc.classList.add("translate-x-0");
+        } else {
+          toc.classList.remove("translate-x-0");
+          toc.classList.add("translate-x-full");
+        }
+      }
+    });
+  }
+
+  function dismissTocOnScroll() {
+    if (toc && !toc.classList.contains("translate-x-full")) {
+      toc.classList.add("translate-x-full");
+    }
+  }
+
+  function dismissTocOnClickOutside(event: MouseEvent) {
+    if (
+      toc &&
+      !(toc as Node).contains(event.target as Node) &&
+      tocToggle &&
+      !tocToggle.contains(event.target as Node)
+    ) {
+      toc.classList.add("translate-x-full");
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("click", dismissTocOnClickOutside);
+    window.addEventListener("scroll", dismissTocOnScroll, {
+      passive: true,
+    });
+  });
+</script>
 
 <script is:inline>
   // This script tag is useful only if you want to display the TOC alongside the blog post...

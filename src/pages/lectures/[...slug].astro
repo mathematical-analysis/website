@@ -45,17 +45,19 @@ console.log(headings);
 ---
 
 <BlogLayout
-  ><article class="">
+  ><article class="w-full">
     <h1 class="text-[40px] font-semibold leading-[44px]">
       {post.data.title}
     </h1>
 
-    <Toc headings={headings} />
     <hr class="my-4 opacity-10" />
+
+    <Toc headings={headings} />
 
     <div class="mt-10 prose prose-neutral prose-invert prose-img:rounded-lg">
       <Content />
     </div>
+
     <div class="mt-10 flex justify-between items-center space-x-4 w-full">
       {
         post.previousSlug && (
