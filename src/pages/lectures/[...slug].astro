@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import "../../styles/markdown.css";
 import BlogLayout from "@/layouts/blogLayout.astro";
+import Toc from "@/components/toc.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("lectures");
@@ -38,7 +39,9 @@ type Props = CollectionEntry<"lectures"> & {
 // type Props = CollectionEntry<"lectures">;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
+
+console.log(headings);
 ---
 
 <BlogLayout
@@ -46,7 +49,10 @@ const { Content } = await post.render();
     <h1 class="text-[40px] font-semibold leading-[44px]">
       {post.data.title}
     </h1>
+
+    <Toc headings={headings} />
     <hr class="my-4 opacity-10" />
+
     <div class="mt-10 prose prose-neutral prose-invert prose-img:rounded-lg">
       <Content />
     </div>

@@ -34,7 +34,7 @@ const posts = (await getCollection("lectures")).sort(
           <a href="/" class="opacity-100"> Mathematical Analysis </a>
         </h1>
         <div>
-          <p class="opacity-50">Fall 2024</p>
+          <p class="opacity-50">Fall 2024 | 1<sup>st</sup> year</p>
           <p class="opacity-50">Babeș-Bolyai University</p>
         </div>
 
@@ -58,7 +58,7 @@ const posts = (await getCollection("lectures")).sort(
                 <a href={`/lectures/${post.slug}/`} class="w-full">
                   <li class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 w-full">
                     <h4 class="truncate w-[80%]">{post.data.title}</h4>
-                    <kbd class="bg-neutral-800 px-2 py-0.5 rounded-lg scale-75">
+                    <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75 font-semibold w-10 flex items-center justify-center">
                       {idx + 1}
                     </kbd>
                   </li>
