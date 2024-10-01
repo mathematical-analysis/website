@@ -27,4 +27,5 @@ export default defineConfig({
     remarkPlugins: [remarkToc, remarkMath],
   },
   site: "https://mathematical-analysis.github.io",
+  base: "website",
 });
