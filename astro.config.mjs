@@ -26,6 +26,6 @@ export default defineConfig({
     rehypePlugins: [rehypeHeadingIds, rehypeAccessibleEmojis, rehypeKatex],
     remarkPlugins: [remarkToc, remarkMath],
   },
-  site: 'https://mathematical-analysis.github.io',
-  base: 'website',
+  site: "https://mathematical-analysis.github.io",
+  base: "",
 });
