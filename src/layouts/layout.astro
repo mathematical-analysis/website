@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("lectures")).sort(
   (a, b) => parseInt(a.slug) - parseInt(b.slug)
 );
+
 ---
 
 <!doctype html>
@@ -31,7 +32,7 @@ const posts = (await getCollection("lectures")).sort(
         class="transform-gpu top-0 left-0 w-80! bg-neutral-950 text-neutral-50 px-6 py-12 flex flex-col space-y-8 fixed md:sticky h-screen overflow-auto ease-out transition-all duration-200 z-20 -translate-x-full md:translate-x-0 md:flex md:flex-col !basis-80"
       >
         <h1 class="text-3xl font-bold">
-          <a href="/" class="opacity-100"> Mathematical Analysis </a>
+          <a href="/website" class="opacity-100"> Mathematical Analysis </a>
         </h1>
         <div>
           <p class="opacity-50">Fall 2024 | 1<sup>st</sup> year</p>
@@ -55,7 +56,7 @@ const posts = (await getCollection("lectures")).sort(
                 {idx == 6 && (
                   <hr class="border-white/5 border-dashed border-[1.5px] my-2" />
                 )}
-                <a href={`/lectures/${post.slug}/`} class="w-full">
+                <a href={`/website/lectures/${post.slug}/`} class="w-full">
                   <li class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 w-full">
                     <h4 class="truncate w-[80%]">{post.data.title}</h4>
                     <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75 font-semibold w-10 flex items-center justify-center">
@@ -73,7 +74,7 @@ const posts = (await getCollection("lectures")).sort(
           <li
             class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/schedule/" class="flex items-center space-x-2 w-ful">
+            <a href="/website/schedule/" class="flex items-center space-x-2 w-ful">
               <span class="opacity-100">Schedule</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -84,7 +85,7 @@ const posts = (await getCollection("lectures")).sort(
           <li
             class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/syllabus/" class="flex items-center space-x-2 w-full">
+            <a href="/website/syllabus/" class="flex items-center space-x-2 w-full">
               <span class="opacity-100">Syllabus</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -95,7 +96,7 @@ const posts = (await getCollection("lectures")).sort(
           <li
             class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/faq/" class="flex items-center space-x-2 w-full">
+            <a href="/website/faq/" class="flex items-center space-x-2 w-full">
               <span class="opacity-100">FAQ</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -106,7 +107,7 @@ const posts = (await getCollection("lectures")).sort(
           <!-- <li
             class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/syllabus/" class="flex items-center space-x-2 w-full">
+            <a href=/website"/syllabus/" class="flex items-center space-x-2 w-full">
               <span class="opacity-100">Exams</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
