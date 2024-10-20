@@ -4,18 +4,10 @@ description: "Lecture 1"
 pubDate: "Oct 03 2024"
 ---
 
-<details>
-  <summary>[Lecture 1](#lecture-1)</summary>
-  - [Real Numbers](#real-numbers)
-  - [Supremum and Infimum](#supremum-and-infimum)
-  - [Neighborhoods. Interior. Closure](#neighborhoods-interior-closure)
-</details>
 
-<hr class="mt-12" />
 
-## Lecture 1.
 
-### Real Numbers
+## Real Numbers
 
 Let us start with some standard notation:
 
@@ -28,19 +20,19 @@ Let us start with some standard notation:
 You are very much used with the real numbers. However, it is not trivial to define them in a rigorous way, see for example the references for different methods of constructing $\mathbb{R}$ from $\mathbb{Q}$. We will straightforwardly start working with the real numbers -- for this reason some of their properties, e.g. the Completeness Axiom below, will simply be stated without giving details. 
 
 **Definition 1.1**
-Let $A$ be a subset of $\R$, denoted as $A\subseteq\R$. We define $x\in\R$ to be
+Let $A$ be a subset of $\mathbb{R}$, denoted as $A\subseteq\mathbb{R}$. We define $x\in\mathbb{R}$ to be
 	$$
 	\text{a \emph{lower bound} for } A \text{ if } x\leq a,\, \forall a\in A;\quad
 	\text{ an \emph{upper bound} for } A \text{ if } x\geq a,\, \forall a\in A.
 	$$
 	We define		
 	$$
-	lb(A) := \{ x\in \R \mid x\leq a,\, \forall a\in A\} \text{ the set of lower bounds of } A,
+	lb(A) := \{ x\in \mathbb{R} \mid x\leq a,\, \forall a\in A\} \text{ the set of lower bounds of } A,
 	$$
 	$$
-	ub(A) := \{ x\in \R \mid x\geq a,\, \forall a\in A\} \text{ the set of upper bounds of } A.
+	ub(A) := \{ x\in \mathbb{R} \mid x\geq a,\, \forall a\in A\} \text{ the set of upper bounds of } A.
 	$$
-	We define $x\in\R$ to be
+	We define $x\in\mathbb{R}$ to be
 	$$
 	\text{the minimum of } A \text{ if } x\in lb(A) \cap A; \quad
 	\text{the maximum of } A \text{ if } x\in ub(A) \cap A,
@@ -53,7 +45,7 @@ Let $A$ be a subset of $\R$, denoted as $A\subseteq\R$. We define $x\in\R$ to be
 Note that there are sets which do no have minimum or maximum, e.g. $(0,1)$.
 
 **Definition 1.2**
-A set $A\subseteq\R$ is defined to be:
+A set $A\subseteq\mathbb{R}$ is defined to be:
 
 	- bounded (from) below if $lb(A) \neq \emptyset$;
 	- bounded (from) above if $ub(A) \neq \emptyset$;
@@ -63,14 +55,14 @@ A set $A\subseteq\R$ is defined to be:
 ### Supremum and infimum
 
 **Definition 1.3**
-We say that \( x \in \mathbb{R} \) is the *supremum* of \( A \subseteq \mathbb{R} \), \( x := \sup(A) \), if and only if:
-1. \( x \geq a,\, \forall a \in A \), that is \( x \in ub(A) \).
-2. If \( u \) is an upper bound for \( A \), then \( x \leq u \).
+We say that $ x \in \mathbb{R} $ is the *supremum* of $ A \subseteq \mathbb{R} $, $ x := \sup(A) $, if and only if:
+1. $ x \geq a,\, \forall a \in A $, that is $ x \in ub(A) $.
+2. If $ u $ is an upper bound for $ A $, then $ x \leq u $.
 
-The supremum is the *least upper bound*, i.e. \( \sup(A) := \min(ub(A)) \).
+The supremum is the *least upper bound*, i.e. $ \sup(A) := \min(ub(A)) $.
 
 **Definition 1.4**
-We say that $x\in\R$ is the **infimum** of $A\subseteq\R$, $x:=\inf(A)$, if and only if:
+We say that $x\in\mathbb{R}$ is the **infimum** of $A\subseteq\mathbb{R}$, $x:=\inf(A)$, if and only if:
 
 1. $x\leq a,\, \forall a\in A$, that is $x\in lb(A)$.
 2. if $u$ is a lower bound for $A$, then $x\geq u$.
@@ -85,10 +77,10 @@ Note that if $A$ has a maximum, then $\sup(A) = \max(A)$. Similarly, if $A$ has 
 **Example 1.6**
 (a) $A = \{ \frac1n \mid n\in \N\},\, \sup(A) = 1 = \max(A),\, \inf(A) = 0,\, \nexists \min(A)$.
 
-(b) $A = \{ x\in \Q \mid x^2 \leq 2\},\, \sup(A) = \sqrt{2},\, \nexists \max(A),\, \inf(A) = -\sqrt{2},\, \nexists \min(A)$.
+(b) $A = \{ x\in \mathbb{Q} \mid x^2 \leq 2\},\, \sup(A) = \sqrt{2},\, \nexists \max(A),\, \inf(A) = -\sqrt{2},\, \nexists \min(A)$.
 
 **Theorem 1.7**
-Let $A\subseteq\R$ be a bounded set. For $\sup(A)$ and $\inf(A)$ the following are true:
+Let $A\subseteq\mathbb{R}$ be a bounded set. For $\sup(A)$ and $\inf(A)$ the following are true:
 $$
 \forall \varepsilon > 0,\, \exists x\in A \text{ such that } \sup(A)-\varepsilon < x,
 $$
@@ -97,75 +89,77 @@ $$
 $$
 **Proof.** By definition, for any $y < \sup(A)$, say $y = \sup(A)-\varepsilon$ with $\varepsilon>0$, we have that $y\notin ub(A)$. Hence there exists $x\in A$ such that $y < x$. Similar proof for $\inf(A)$.
 
+
 **Proposition 1.8**
-Let $A\subseteq B\subseteq \R$ be (nonempty) bounded sets. Then
-		$$
-		\inf(B) \leq \inf(A) \leq \sup(A) \leq \sup(B)
-		$$
-		and
-    $$
-		\sup(A\cup B) &= \max\{\sup(A),\, \sup(B)\},\\
-		\inf(A\cup B) &= \min\{\inf(A),\, \inf(B)\}.
-    $$
+Let $A\subseteq B\subseteq \mathbb{R}$ be (nonempty) bounded sets. Then
+$$
+\inf(B) \leq \inf(A) \leq \sup(A) \leq \sup(B)
+$$
+and
+$$
+\sup(A\cup B) = \max\{\sup(A),\, \sup(B)\},\\
+\inf(A\cup B) = \min\{\inf(A),\, \inf(B)\}.
+$$
 **Proof.** It follows directly from the definitions.
 
 **Definition 1.9**
-Define the \emph{extended real line} $\overline \R := \R \cup \{-\infty,\infty\}$, where $\infty$ and $-\infty$ are such that
-		$$\forall x\in \R,\, -\infty < x < \infty.$$
+Define the extended real line \overline $\mathbb{R} := \mathbb{R} \cup \{-\infty,\infty\}$, where $\infty$ and $-\infty$ are such that
+$$
+\forall x\in \mathbb{R},\, -\infty < x < \infty.
+$$
 
-		If a set $A$ is not bounded above, we define $\sup(A):= \infty$.
+If a set $A$ is not bounded above, we define $\sup(A):= \infty$.
 
-		If a set $A$ is not bounded below, we define $\inf(A):= -\infty$.
+If a set $A$ is not bounded below, we define $\inf(A):= -\infty$.
 
-### Neighborhoods. Interior. Closure #neighborhoods-interior-closure
+### Neighborhoods. Interior. Closure 
 
 **Definition 1.10**
-A set \( V \subseteq \mathbb{R} \) is a *neighborhood (vicinity)* of \( x \in \mathbb{R} \) if
+A set $$ V \subseteq \mathbb{R} $$ is a *neighborhood (vicinity)* of $$ x \in \mathbb{R} $$ if
 
-\[
+$$
 \exists \varepsilon > 0 \text{ such that } (x - \varepsilon, x + \varepsilon) \subseteq V.
-\]
+$$
 
-A set \( V \subseteq \mathbb{R} \) is a *neighborhood* of \( \infty \) if \( \exists a \in \mathbb{R} \text{ such that } (a, \infty) \subseteq V. \)
+A set $$ V \subseteq \mathbb{R} $$ is a *neighborhood* of $$ \infty $$ if $$ \exists a \in \mathbb{R} \text{ such that } (a, \infty) \subseteq V. $$
 
-A set \( V \subseteq \mathbb{R} \) is a *neighborhood* of \( -\infty \) if \( \exists a \in \mathbb{R} \text{ such that } (-\infty, a) \subseteq V. \)
+A set $$ V \subseteq \mathbb{R} $$ is a *neighborhood* of $$ -\infty $$ if $$ \exists a \in \mathbb{R} \text{ such that } (-\infty, a) \subseteq V. $$
 
-We denote all the neighborhoods of \( x \) by \( \mathcal{V}(x) := \{V \subseteq \mathbb{R} \mid V \text{ is a neighborhood of } x\} \).
-
+We denote all the neighborhoods of $$ x $$ by $$ \mathcal{V}(x) := \{V \subseteq \mathbb{R} \mid V \text{ is a neighborhood of } x\} $$.
 
 **Definition 1.11**
-Let \( A \subseteq \mathbb{R} \). The following set is called the *interior* of \( A \)
+Let $ A \subseteq \mathbb{R} $. The following set is called the *interior* of $ A $
 
-\[
+$$
 \mathrm{int}(A):= \{x \in \mathbb{R} \mid \exists V \in \mathcal{V}(x) \text{ such that } V \subseteq A\},
-\]
+$$
 
-and the following set is called the *closure* of \( A \)
+and the following set is called the *closure* of $ A $
 
-\[
+$$
 \mathrm{cl}(A):= \{x \in \mathbb{R} \mid \forall V \in \mathcal{V}(x),\, V \cap A \neq \emptyset\}.
-\]
+$$
 
-**Proposition 1.12** {#prop:inclusions_int_cl}
-For any \( A \subseteq \mathbb{R} \), it holds that \( \mathrm{int}(A) \subseteq A \subseteq \mathrm{cl}(A) \).
+**Proposition 1.12** 
+For any $ A \subseteq \mathbb{R} $, it holds that $ \mathrm{int}(A) \subseteq A \subseteq \mathrm{cl}(A) $.
 
-**Proof.** To prove that \( \mathrm{int}(A) \subseteq A \), we prove that if \( x \in \mathrm{int}(A) \), then \( x \in A \). Let \( x \in \mathrm{int}(A) \), then \( \exists \varepsilon > 0 \) such that \( (x-\varepsilon,x+\varepsilon) \subseteq A \). Since \( x \in (x-\varepsilon,x+\varepsilon) \), we have that \( x \in A \).  
-To prove that \( A \subseteq \mathrm{cl}(A) \), we show that if \( x \in A \), then \( x \in \mathrm{cl}(A) \). Let \( x \in A \). Then for any \( V \in \mathcal{V}(x) \), it holds that \( x \in V \), giving that \( x \in V \cap A \). Hence, \( x \in \mathrm{cl}(A) \) since \( V \cap A \neq \emptyset \).
+**Proof.** To prove that $ \mathrm{int}(A) \subseteq A $, we prove that if $ x \in \mathrm{int}(A) $, then $ x \in A $. Let $ x \in \mathrm{int}(A) $, then $ \exists \varepsilon > 0 $ such that $ (x-\varepsilon,x+\varepsilon) \subseteq A $. Since $ x \in (x-\varepsilon,x+\varepsilon) $, we have that $ x \in A $.  
+To prove that $ A \subseteq \mathrm{cl}(A) $, we show that if $ x \in A $, then $ x \in \mathrm{cl}(A) $. Let $ x \in A $. Then for any $ V \in \mathcal{V}(x) $, it holds that $ x \in V $, giving that $ x \in V \cap A $. Hence, $ x \in \mathrm{cl}(A) $ since $ V \cap A \neq \emptyset $.
 
 **Definition 1.13**
-If \( A = \mathrm{int}(A) \), then \( A \) is called *open*.  
-If \( A = \mathrm{cl}(A) \), then \( A \) is called *closed*.
+If $ A = \mathrm{int}(A) $, then $ A $ is called *open*.  
+If $ A = \mathrm{cl}(A) $, then $ A $ is called *closed*.
 
 **Remark 1.14**
-To prove that a set \( A \) is open, it is sufficient to prove that \( A \subseteq \mathrm{int}(A) \).  
-To prove that a set \( A \) is closed, it is sufficient to prove that \( \mathrm{cl}(A) \subseteq A \).
+To prove that a set $ A $ is open, it is sufficient to prove that $ A \subseteq \mathrm{int}(A) $.  
+To prove that a set $ A $ is closed, it is sufficient to prove that $ \mathrm{cl}(A) \subseteq A $.
 
-**Proposition 1.15** {#prop:complement_open}
+**Proposition 1.15** 
 The following statements are true:
 - The complement of an open set is closed.
 - The complement of a closed set is open.
 
-**Proof.** Let us prove the first statement, the other one being similar. Consider \( A \) an open set, i.e. \( A = \mathrm{int}(A) \), and denote by \( A^{\mathrm{c}} = \{x \in \mathbb{R} \mid x \notin A\} \) its complement. To prove that \( A^{\mathrm{c}} \) is closed, we prove that \( \mathrm{cl}(A^{\mathrm{c}}) \subseteq A^{\mathrm{c}} \). Consider \( x \in \mathrm{cl}(A^{\mathrm{c}}) \) and let's assume that \( x \notin A^{\mathrm{c}} \), i.e. \( x \in A \), aiming to obtain a contradiction. Since \( A \) is open, there exists \( V \in \mathcal{V}(x) \) such that \( V \subseteq A \), giving that \( V \cap A^{\mathrm{c}} = \emptyset \): contradiction with \( x \in \mathrm{cl}(A^{\mathrm{c}}) \). Hence, the assumption \( x \notin A^{\mathrm{c}} \) is false, and we have that if \( x \in \mathrm{cl}(A^{\mathrm{c}}) \), then \( x \in A^{\mathrm{c}} \). In other words, \( \mathrm{cl}(A^{\mathrm{c}}) \subseteq A^{\mathrm{c}} \).
+**Proof.** Let us prove the first statement, the other one being similar. Consider $ A $ an open set, i.e. $ A = \mathrm{int}(A) $, and denote by $ A^{\mathrm{c}} = \{x \in \mathbb{R} \mid x \notin A\} $ its complement. To prove that $ A^{\mathrm{c}} $ is closed, we prove that $ \mathrm{cl}(A^{\mathrm{c}}) \subseteq A^{\mathrm{c}} $. Consider $ x \in \mathrm{cl}(A^{\mathrm{c}}) $ and let's assume that $ x \notin A^{\mathrm{c}} $, i.e. $ x \in A $, aiming to obtain a contradiction. Since $ A $ is open, there exists $ V \in \mathcal{V}(x) $ such that $ V \subseteq A $, giving that $ V \cap A^{\mathrm{c}} = \emptyset $: contradiction with $ x \in \mathrm{cl}(A^{\mathrm{c}}) $. Hence, the assumption $ x \notin A^{\mathrm{c}} $ is false, and we have that if $ x \in \mathrm{cl}(A^{\mathrm{c}}) $, then $ x \in A^{\mathrm{c}} $. In other words, $ \mathrm{cl}(A^{\mathrm{c}}) \subseteq A^{\mathrm{c}} $.
 
 **Proposition 1.16**
 Any union of open sets is open. Any intersection of closed sets is closed. Any finite intersection of open sets is open. Any finite union of closed sets is closed.
