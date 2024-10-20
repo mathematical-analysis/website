@@ -6,7 +6,6 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("lectures")).sort(
   (a, b) => parseInt(a.slug) - parseInt(b.slug)
 );
-
 ---
 
 <!doctype html>
@@ -74,7 +73,10 @@ const posts = (await getCollection("lectures")).sort(
           <li
             class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/website/schedule/" class="flex items-center space-x-2 w-ful">
+            <a
+              href="/website/schedule/"
+              class="flex items-center space-x-2 w-ful"
+            >
               <span class="opacity-100">Schedule</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -85,7 +87,10 @@ const posts = (await getCollection("lectures")).sort(
           <li
             class="hover:opacity-50 transition-opacity flex justify-between items-center duration-150 cursor-pointer"
           >
-            <a href="/website/syllabus/" class="flex items-center space-x-2 w-full">
+            <a
+              href="/website/syllabus/"
+              class="flex items-center space-x-2 w-full"
+            >
               <span class="opacity-100">Syllabus</span>
             </a>
             <kbd class="bg-neutral-800 px-2.5 py-0.5 rounded-lg scale-75">
@@ -233,7 +238,7 @@ const posts = (await getCollection("lectures")).sort(
       // Define a function to handle navigation
       const navigate = () => {
         if (parseInt(keyBuffer, 10) <= 12) {
-          window.location.href = `/lectures/${keyBuffer}/`;
+          window.location.href = `/website/lectures/${keyBuffer}/`;
         }
         keyBuffer = ""; // Reset the buffer
       };
@@ -249,16 +254,16 @@ const posts = (await getCollection("lectures")).sort(
       // Handle other keys like 'h', 'f', 's'
       switch (key) {
         case "h":
-          window.location.href = "/";
+          window.location.href = "/website/";
           break;
         case "f":
-          window.location.href = "/faq/";
+          window.location.href = "/website/faq/";
           break;
         case "s":
-          window.location.href = "/schedule/";
+          window.location.href = "/website/schedule/";
           break;
         case "y":
-          window.location.href = "/syllabus/";
+          window.location.href = "/website/syllabus/";
           break;
       }
       keyBuffer = ""; // Reset the buffer if a non-numeric key is pressed
